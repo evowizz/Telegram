@@ -113,11 +113,13 @@ public class AdminLogFilterAlert extends BottomSheet {
         editRow = rowCount++;
         if (isMegagroup) {
             pinnedRow = rowCount++;
+            leavingRow = rowCount++;
+            callsRow = rowCount;
         } else {
             pinnedRow = -1;
+            leavingRow = rowCount;
+            callsRow = -1;
         }
-        leavingRow = rowCount++;
-        callsRow = rowCount;
         rowCount += 2;
         allAdminsRow = rowCount;
 
