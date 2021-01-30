@@ -9504,6 +9504,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
             }
             newMessageObject = imagesArr.get(switchingToIndex);
             isVideo = newMessageObject.isVideo();
+            boolean canPreview = newMessageObject.canPreviewDocument();
             boolean isInvoice = newMessageObject.isInvoice();
             if (isInvoice) {
                 setItemVisible(masksItem, false, true);
@@ -9672,7 +9673,7 @@ public class PhotoViewer implements NotificationCenter.NotificationCenterDelegat
                 } else {
                     allowShare = true;
                     menuItem.showSubItem(gallery_menu_save);
-                    paintButton.setVisibility(!isVideo && canSendMediaToParentChatActivity() ? View.VISIBLE : View.GONE);
+                    paintButton.setVisibility(!isVideo && canPreview && canSendMediaToParentChatActivity() ? View.VISIBLE : View.GONE);
                     bottomButtonsLayout.setVisibility(!videoPlayerControlVisible ? View.VISIBLE : View.GONE);
                     if (bottomButtonsLayout.getVisibility() == View.VISIBLE) {
                         menuItem.hideSubItem(gallery_menu_share);
