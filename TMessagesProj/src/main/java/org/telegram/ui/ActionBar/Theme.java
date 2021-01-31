@@ -1530,7 +1530,12 @@ public class Theme {
         }
 
         public boolean isDark() {
-            return "Dark Blue".equals(name) || "Night".equals(name);
+            int backgroundColor = getPreviewBackgroundColor();
+            if (backgroundColor == 0) {
+                backgroundColor = getColor(key_windowBackgroundWhite);
+            }
+
+            return Color.luminance(backgroundColor) < 0.5f;
         }
 
         public boolean isLight() {
