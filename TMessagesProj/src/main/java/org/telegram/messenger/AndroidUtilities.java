@@ -431,6 +431,9 @@ public class AndroidUtilities {
         if (!internalOnly && (mask & Linkify.PHONE_NUMBERS) != 0) {
             Linkify.addLinks(text, Linkify.PHONE_NUMBERS);
         }
+        if (!internalOnly && (mask & Linkify.EMAIL_ADDRESSES) != 0) {
+            Linkify.addLinks(text,Linkify.EMAIL_ADDRESSES);
+        }
         if ((mask & Linkify.WEB_URLS) != 0) {
             gatherLinks(links, text, LinkifyPort.WEB_URL, new String[]{"http://", "https://", "ton://", "tg://"}, sUrlMatchFilter, internalOnly);
         }
